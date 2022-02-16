@@ -1,17 +1,11 @@
 import React from "react";
+import Lists from './Lists';
 
-const List = ({product}) => {
+const List = ({product, removeProduct}) => {
     return (
         <>
-        {product.map((pro)=>{
-            const {id, name, quantity, image} = pro;
-            return (<article key={id} className='product'>
-                <img src={image} alt={name} />
-                <div>
-                    <h4>{name}</h4>
-                    <p>Quantity: {quantity}</p>
-                </div>
-            </article>);
+        {product.map((product)=>{
+            return <Lists key={product.id} {...product} removeProduct={removeProduct}></Lists>
         })}
         </>
     );
